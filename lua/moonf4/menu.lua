@@ -348,25 +348,24 @@ local function CreatePageJobs(jobs)
         panel_job:SetText('')
 
         panel_job.Paint = function(self, w, h)
-            draw.RoundedBoxEx(16, 0, 0, w, h, Mantle.color.panel[2], true, true, false, false)
-            Mantle.func.gradient(0, 0 + h * 0.2, w, h * 0.8 + 1, 1, color_shadow)
+            draw.RoundedBox(6, 0, 0, w, h, Mantle.color.panel_alpha[2])
 
             if self.btn:IsHovered() then
-                draw.RoundedBoxEx(16, 0, 0, w, h, color_item_hovered, true, true, false, false)
+                draw.RoundedBox(6, 0, 0, w, h, color_item_hovered)
             end
         end
         panel_job.PaintOver = function(_, w, h)
-            draw.RoundedBoxEx(16, 0, 0, w, 40, job.color, true, true, false, false)
+            draw.RoundedBoxEx(6, 0, 0, w, 30, job.color, true, true, false, false)
 
             if job.f4_text and job.f4_text_dop then
-                draw.SimpleText(job.f4_text, 'Fated.18', 5, h - 21, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
-                draw.SimpleText(job.f4_text_dop, 'Fated.18', 5, h - 5, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+                draw.SimpleText(job.f4_text, 'Fated.15', 5, h - 21, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+                draw.SimpleText(job.f4_text_dop, 'Fated.15', 5, h - 5, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
             elseif job.f4_text then
-                draw.SimpleText(job.f4_text, 'Fated.18', 5, h - 5, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+                draw.SimpleText(job.f4_text, 'Fated.15', 5, h - 5, color_f4_text, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
             end
 
-            draw.SimpleText('Зарплата: ' .. DarkRP.formatMoney(job.salary), 'Fated.18', 4, 59, color_gray, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
-            draw.SimpleText(job.name, 'Fated.16', w * 0.5, 20, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            draw.SimpleText('Зарплата: ' .. DarkRP.formatMoney(job.salary), 'Fated.15', 4, 47, color_gray, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+            draw.SimpleText(job.name, 'Fated.16', w * 0.5, 14, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
             local job_active_count = team.NumPlayers(job['team'])
             local color_count = (job_active_count == job.max and job.max != 0) and color_max_count or color_white
@@ -439,7 +438,7 @@ local function CreatePageJobs(jobs)
 
         panel_job.btn_fav = vgui.Create('DButton', panel_job)
         panel_job.btn_fav:SetSize(16, 16)
-        panel_job.btn_fav:SetPos(panel_job:GetWide() - 20, 44)
+        panel_job.btn_fav:SetPos(panel_job:GetWide() - 20, 34)
         panel_job.btn_fav:SetText('')
         panel_job.btn_fav.DoClick = function()
             local fav_jobs = {}
@@ -521,7 +520,7 @@ local function Create()
     MoonF4.panel_split:DockMargin(0, 0, 0, 6)
     MoonF4.panel_split:SetTall(36)
     MoonF4.panel_split.Paint = function(_, w, h)
-        draw.RoundedBox(4, 0, 0, w, h, Mantle.color.panel[2])
+        draw.RoundedBox(4, 0, 0, w, h, Mantle.color.panel_alpha[2])
     end
 
     local ConfigUrl = {
