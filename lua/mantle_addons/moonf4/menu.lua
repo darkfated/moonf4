@@ -493,10 +493,10 @@ local function Create()
     MoonF4:SetDraggable(false)
     MoonF4.hudBackAlpha = 0
     MoonF4.OnKeyCodePressed = function(_, key)
-		if key == KEY_F4 then
-			Close()
-		end
-	end
+        if key == KEY_F4 then
+            Close()
+        end
+    end
     MoonF4.cls.DoClick = function()
         Close()
     end
