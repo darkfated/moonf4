@@ -180,7 +180,6 @@ local function CreateJobMenu(job, active_model)
         MoonF4.menu_job_background:Remove()
         MoonF4.menu_job:Remove()
     end
-    MoonF4.menu_job.btn_center_title:Remove()
 
     local text_job_salary = DarkRP.formatMoney(job.salary)
 
